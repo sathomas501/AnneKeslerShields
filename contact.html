@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Anne Kesler Shields</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-title">
+      Anne Kesler Shields
+      <span>1932 – 2012</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
+      <ul>
+        <li>
+          <a href="gallery/index.html">Gallery</a>
+          <ul class="dropdown">
+            <li><a href="gallery/index.html">Browse All</a></li>
+            <li><a href="gallery/op-art.html">Op Art</a></li>
+            <li><a href="gallery/secca.html">SECCA 50 Year Retrospective</a></li>
+            <li><a href="gallery/oil-paintings.html">Oil Paintings</a></li>
+            <li><a href="gallery/woodcuts.html">Woodcuts</a></li>
+            <li><a href="gallery/portraiture.html">Portraiture</a></li>
+            <li><a href="gallery/appropriated-images.html">Appropriated Images</a></li>
+            <li><a href="gallery/installations.html">Installations</a></li>
+            <li><a href="gallery/sculpture.html">Sculpture</a></li>
+            <li><a href="gallery/arbor-acres.html">Arbor Acres Permanent Collection</a></li>
+          </ul>
+        </li>
+        <li><a href="artist-statement.html">Artist Statement</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-section">
+    <p class="page-title">Contact</p>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>Thank you for your interest in the work of Anne Kesler Shields. For inquiries please use the form or contact us directly:</p>
+        <br>
+        <p><strong>Carolyn M Shields</strong></p>
+        <p><a href="mailto:carolynmshields@gmail.com">carolynmshields@gmail.com</a></p>
+        <p>703-856-1230</p>
+      </div>
+
+      <div>
+        <!-- Formspree: replace YOUR_FORM_ID with the ID from formspree.io -->
+        <form action="https://formspree.io/f/mnjbrvlg" method="POST" id="contact-form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+        <div class="form-success" id="form-success">
+          Thank you — your message has been sent.
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2021 Anne Kesler Shields Estate. Site maintained by Carolyn M Shields.</p>
+  <p><a href="mailto:carolynmshields@gmail.com">carolynmshields@gmail.com</a></p>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# HTTrack build artifacts (not part of the site)
+backblue.gif
+fade.gif
+cookies.txt
+hts-cache/
+hts-log.txt
+browser.sentry-cdn.com/
+static.parastorage.com/
+static.wixstatic.com/
+www.annekeslershields.com/
+
+# build helpers
+build_gallery.py
+copy_images.py
